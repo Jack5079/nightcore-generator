@@ -1,0 +1,27 @@
+{
+  "name": "nightcore-generator",
+  "version": "1.0.0",
+  "description": "nightcore is so effortless it can be automated",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jack5079/nightcore-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jack5079/nightcore-generator/issues"
+  },
+  "homepage": "https://github.com/Jack5079/nightcore-generator#readme",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "enquirer": "^2.3.5",
+    "fluent-ffmpeg": "^2.1.2",
+    "node-fetch": "^2.6.0",
+    "ytdl-core": "^2.1.0"
+  }
+}

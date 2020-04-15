@@ -1,11 +1,10 @@
-// todo: image part
-// https://invidio.us/api/v1/search?q=hello&type=video
 const {prompt} = require('enquirer')
 const fetch = require('node-fetch')
 const ffmpeg = require('fluent-ffmpeg')
 const { path: ffmpegPath } = require('@ffmpeg-installer/ffmpeg')
 const ytdl = require('ytdl-core')
 const { promises: {writeFile}, existsSync, unlinkSync } = require('fs')
+
 if (existsSync('./out.mp4')) {
   unlinkSync('./out.mp4')
 }

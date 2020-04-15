@@ -5,7 +5,10 @@ const fetch = require('node-fetch')
 const ffmpeg = require('fluent-ffmpeg')
 const { path: ffmpegPath } = require('@ffmpeg-installer/ffmpeg')
 const ytdl = require('ytdl-core')
-const {createWriteStream, createReadStream, promises: {writeFile} } = require('fs')
+const { promises: {writeFile}, existsSync, unlinkSync } = require('fs')
+if (existsSync('./out.mp4')) {
+  unlinkSync('./out.mp4')
+}
 ffmpeg.setFfmpegPath(ffmpegPath)
 
 ;(async function main () {
@@ -32,7 +35,8 @@ ffmpeg.setFfmpegPath(ffmpegPath)
   })
   const {img} = await prompt({
     type: 'text',
-    message: 'Search for an image.'
+    message: 'Search for an image.',
+    name: 'img'
   })
   const buff = await fetch('https://source.unsplash.com/random/?' + encodeURIComponent(img)).then(res=>res.buffer())
   await writeFile('./img.jpg', buff)
@@ -43,7 +47,7 @@ ffmpeg.setFfmpegPath(ffmpegPath)
     .audioFilter('atempo=2.0')
     .duration(vid.lengthSeconds / 2)
     .save('./out.mp4')
-    .on('progress', function (progress) {
+    .on('progress', function () {
       console.log('Processing...')
     })
 })()

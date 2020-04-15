@@ -11,7 +11,8 @@
     "url": "git+https://github.com/Jack5079/nightcore-generator.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jack",
+  "bin": "./index.js",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jack5079/nightcore-generator/issues"

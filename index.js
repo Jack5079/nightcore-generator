@@ -26,12 +26,22 @@ ffmpeg.setFfmpegPath(ffmpegPath)
     type: 'select',
     name: 'vid',
     message: 'Select a video.',
-    choices: searchdata.map(video => {
-      return {
-        name: video,
-        message: video.title
-      }
-    })
+    choices: searchdata
+      .map(video => { // Add toString
+        return {
+          ...video,
+          toString () {
+            return video.title
+          }
+        }
+      })
+      .map(video => { // Add choices
+        return {
+          name: video,
+          hint: `| Made by ${video.author} - Video URL: https://youtu.be/${video.videoId}`,
+          message: video.title
+        }
+      })
   })
   const {img} = await prompt({
     type: 'text',

@@ -46,6 +46,7 @@ ffmpeg.setFfmpegPath(ffmpegPath)
   const {img} = await prompt({
     type: 'text',
     message: 'Search for an image.',
+    initial: 'anime',
     name: 'img'
   })
   const buff = await fetch('https://source.unsplash.com/random/?' + encodeURIComponent(img)).then(res=>res.buffer())

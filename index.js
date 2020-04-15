@@ -30,7 +30,6 @@ ffmpeg.setFfmpegPath(ffmpegPath)
       }
     })
   })
-  console.log(vid)
   const {img} = await prompt({
     type: 'text',
     message: 'Search for an image.'
@@ -45,6 +44,6 @@ ffmpeg.setFfmpegPath(ffmpegPath)
     .duration(vid.lengthSeconds / 2)
     .save('./out.mp4')
     .on('progress', function (progress) {
-      console.log('Processing: ' + progress.percent + '% done')
+      console.log('Processing...')
     })
 })()
